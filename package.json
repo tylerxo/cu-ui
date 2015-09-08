@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "cu-ui",
+  "version": "0.1.0",
+  "description": "Camelot Unchained UI",
+  "license": "MPL-2.0",
+  "main": "~",
+  "contributors": [
+    "saddieeiddas <saddie.eiddas@gmail.com>"
+  ],
+  "homepage": "https://github.com/csegames/cu-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csegames/cu-ui.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "cu-build-tools": "^0.1.8",
+    "gulp": "^3.9.0"
+  }
+}
