@@ -21,12 +21,12 @@ const Character = React.createClass({
     Reflux.connect(character.store, 'character')
   ],
 
-	// Provide an initial state (TODO: is there a better way to do this?)
-	getInitialState: function() {
+  // Provide an initial state (TODO: is there a better way to do this?)
+  getInitialState: function() {
     return { character: character.store.info };
-	},
+  },
 
-	componentDidMount() {
+  componentDidMount() {
     // client.exe cuAPI BUG:-
     // We should be able to start events in componentDidMount except for
     // a client bug, that means if the event registrations are triggered
@@ -37,19 +37,19 @@ const Character = React.createClass({
     // seen on initial load of the client because the UI is opened before 
     // the character info is sent anyway.
     character.actions.start();              // no-op due to hack below
-	},
+  },
 
-	// Render the unit frame using character data
-	render: function() {
-		const state = this.state, character = state.character;
-		return (
+  // Render the unit frame using character data
+  render: function() {
+    const state = this.state, character = state.character;
+    return (
       <UnitFrame
         className="character"
         name={character.name} race={character.race}
         health={character.health} maxHealth={character.maxHealth}
         stamina={character.stamina} maxStamina={character.maxStamina} />
-		);
-	}
+    );
+  }
 });
 
 events.on("init", function() {
