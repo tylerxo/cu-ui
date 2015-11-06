@@ -2,7 +2,7 @@
 .suo
 npm-debug.log
 .sublime-gulp.cache
-/node_modules
+**/*node_modules
 /bin
 /obj
 /tmp
