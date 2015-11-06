@@ -16,37 +16,37 @@ const enemyTarget: any = EnemyTargetStore.create();
 
 const EnemyTarget = React.createClass({
 
-	// Hook store up to component.  Each time character data is changed,
-	// our state is updated, triggering a render
-	mixins: [
-		Reflux.connect(enemyTarget.store, 'enemyTarget')
-	],
+  // Hook store up to component.  Each time character data is changed,
+  // our state is updated, triggering a render
+  mixins: [
+    Reflux.connect(enemyTarget.store, 'enemyTarget')
+  ],
 
-	// Provide an initial state (TODO: is there a better way to do this?)
-	getInitialState: function() {
-		return { enemyTarget: enemyTarget.store.info };
-	},
+  // Provide an initial state (TODO: is there a better way to do this?)
+  getInitialState: function() {
+    return { enemyTarget: enemyTarget.store.info };
+  },
 
-	componentDidMount() {
-		// Start listening for character events
-		// FIXME: broken, currently no-op
-		enemyTarget.actions.start();
-	},
+  componentDidMount() {
+    // Start listening for character events
+    // FIXME: broken, currently no-op
+    enemyTarget.actions.start();
+  },
 
-	// Render the unit frame using character data
-	render: function() {
-		var state = this.state, enemyTarget = state.enemyTarget;
-		return (<UnitFrame
-			name={enemyTarget.name} race={enemyTarget.race}
-			health={enemyTarget.health} maxHealth={enemyTarget.maxHealth}
-			stamina={enemyTarget.stamina} maxStamina={enemyTarget.maxStamina}
-			injuries={enemyTarget.injuries}
-			/>
-		);
-	}
+  // Render the unit frame using character data
+  render: function() {
+    var state = this.state, enemyTarget = state.enemyTarget;
+    return (<UnitFrame
+      name={enemyTarget.name} race={enemyTarget.race}
+      health={enemyTarget.health} maxHealth={enemyTarget.maxHealth}
+      stamina={enemyTarget.stamina} maxStamina={enemyTarget.maxStamina}
+      injuries={enemyTarget.injuries}
+      />
+    );
+  }
 });
 
 events.on("init", function() {
-	enemyTarget.actions.start();	// HACK for cuAPI bug
-	React.render(<EnemyTarget/>, document.getElementById("cse-ui-enemytarget"));
+  enemyTarget.actions.start();  // HACK for cuAPI bug
+  React.render(<EnemyTarget/>, document.getElementById("cse-ui-enemytarget"));
 });
