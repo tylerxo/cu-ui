@@ -1,0 +1,11 @@
+{
+  "name": "friendlytarget",
+  "mainFile": "index.html",
+  "rect": {
+    "left": 300,
+    "top": 150,
+    "right": 478,
+    "bottom": 289
+  },
+  "handlesFriendlyTarget": true
+}
