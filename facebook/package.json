@@ -4,7 +4,10 @@
   "description": "Camelot Unchained UI - facebook",
   "license": "MPL-2.0",
   "main": "src/ts/main.tsx",
-  "contributors": [
+  "contributors": [{
+    "name": "Stacey Schlenker",
+    "email": "cloudsift@gmail.com"
+  }  
   ],
   "keywords": [
     "Camelot",
