@@ -22,10 +22,10 @@
     "url": "https://github.com/csegames/cu-ui.git"
   },
   "dependencies": {
-    "cu-components": "^0.1.2",
-    "cu-core": "^0.1.12",
-    "cu-events": "../lib/cu-events",
-    "cu-stores": "^0.1.5",
+    "cu-components": "latest",
+    "cu-core": "latest",
+    "cu-events": "latest",
+    "cu-stores": "latest",
     "react": "^0.13.3",
     "reflux": "^0.3.0"
   },
