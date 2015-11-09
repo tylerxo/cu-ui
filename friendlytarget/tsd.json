@@ -4,5 +4,9 @@
   "ref": "master",
   "path": "src/tsd",
   "bundle": "src/tsd/tsd.d.ts",
-  "installed": {}
+  "installed": {
+    "react/react.d.ts": {
+      "commit": "62eedc3121a5e28c50473d2e4a9cefbcb9c3957f"
+    }
+  }
 }
