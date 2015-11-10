@@ -1,0 +1,36 @@
+{
+  "name": "cu-ui-friendlytarget",
+  "version": "0.1.0",
+  "description": "Camelot Unchained UI - friendlytarget",
+  "license": "MPL-2.0",
+  "main": "src/ts/main.tsx",
+  "contributors": [ "mehuge@sorcerer.co.uk" ],
+  "keywords": [
+    "Camelot",
+    "Unchained",
+    "cu",
+    "cu-ui"
+  ],
+  "files": [
+    "lib/",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csegames/cu-ui.git"
+  },
+  "dependencies": {
+    "cu-components": "latest",
+    "cu-core": "latest",
+    "cu-events": "latest",
+    "cu-stores": "latest",
+    "react": "^0.13.3",
+    "reflux": "^0.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "cu-build-tools": "^0.1.8"
+  }
+}
