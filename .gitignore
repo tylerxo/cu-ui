@@ -14,3 +14,4 @@ npm-debug.log
 /interface-lib/
 /cu-boilerplate-module
 /user-cu-build.config.js
+.csproj
