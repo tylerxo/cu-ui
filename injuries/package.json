@@ -34,5 +34,6 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "cu-build-tools": "^0.1.8"
-  }
+  },
+  "private": true
 }
