@@ -45,10 +45,10 @@ class WoundsUI extends React.Component<WoundsUIProps, WoundsUIState> {
         <Buffs type="boon"/>
         <Buffs type="bane"/>
         <Stats
-            blood={character.health} bloodMax={character.maxHealth}
-            stamina={character.stamina} staminaMax={character.maxStamina}
-            panic={15} panicMax={55}
-            temp={72} tempMax={96}
+          blood={character.health} bloodMax={character.maxHealth}
+          stamina={character.stamina} staminaMax={character.maxStamina}
+          panic={15} panicMax={55}
+          temp={72} tempMax={96}
           />
       </div>
     );

@@ -75,21 +75,22 @@ export class Doll extends React.Component<DollProps, DollState> {
       const color = this.props.colors.getColorForWound(injury.wounds);
       parts.push(
         <Part key={'part.'+part}
-              part={part}
-              health={currentHealth}
-              max={maxHealth}
-              wounds={injury.wounds}
-              state={state}
-              color={color}
+          part={part}
+          health={currentHealth}
+          max={maxHealth}
+          wounds={injury.wounds}
+          state={state}
+          color={color}
           />
       );
       labels.push(
-          <Label key={'part.' + part}
-            part={part}
-            value={currentHealth}
-            max={maxHealth}
-            color={color}
-        />);
+        <Label key={'part.' + part}
+          part={part}
+          value={currentHealth}
+          max={maxHealth}
+          color={color}
+          />
+      );
     }
 
     return (

@@ -9,23 +9,23 @@
 const defaultColors: string[] = ['#19b24b', '#feeb00', '#fe1e14', '#8a150b', '#200000'];
 
 export class WoundColors {
-	private key: string = "cse.wound.colors";
-	private colors: string[];
-	constructor() {
-		this.load();
-	}
-	load() : void {
-		const value = localStorage.getItem(this.key);
-		if (value) {
-			this.colors = value.split(",");
-		} else {
-			this.colors = defaultColors;
-		}
-	}
-	save() : void {
-		localStorage.setItem(this.key, this.colors.join(','));
-	}
-	public getColorForWound(wound:number) : string {
-		return this.colors[wound];
-	}
+  private key: string = "cse.wound.colors";
+  private colors: string[];
+  constructor() {
+    this.load();
+  }
+  load() : void {
+    const value = localStorage.getItem(this.key);
+    if (value) {
+      this.colors = value.split(",");
+    } else {
+      this.colors = defaultColors;
+    }
+  }
+  save() : void {
+    localStorage.setItem(this.key, this.colors.join(','));
+  }
+  public getColorForWound(wound:number) : string {
+    return this.colors[wound];
+  }
 }

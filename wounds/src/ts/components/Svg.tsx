@@ -41,27 +41,27 @@ export class Svg extends React.Component<SvgProps, SvgState> {
     return (
       <svg className={this.props.className} viewBox={this.props.box}>
         <style type="text/css">
-        {'.' + this.props.id + ' {' + style + '}'}
+          {'.' + this.props.id + ' {' + style + '}'}
         </style>
         <g>
           {this.props.polygon ?
-              <polygon className={this.props.id} points={this.props.polygon}/>
-              : undefined }
+            <polygon className={this.props.id} points={this.props.polygon}/>
+            : undefined }
           {this.props.path ?
-              <path className={this.props.id} d={this.props.path}/>
-              : undefined }
+            <path className={this.props.id} d={this.props.path}/>
+            : undefined }
           {this.props.circle ?
-              <circle className={this.props.id} cx={this.props.circle.cx} cy={this.props.circle.cy} r={this.props.circle.r}/>
-              : undefined }
+            <circle className={this.props.id} cx={this.props.circle.cx} cy={this.props.circle.cy} r={this.props.circle.r}/>
+            : undefined }
           {this.props.rect ?
-              <rect className={this.props.id} 
-                  x={this.props.rect.x}
-                  y={this.props.rect.y}
-                  transform={this.props.rect.transform}
-                  width={this.props.rect.width}
-                  height={this.props.rect.height}
-                  />
-              : undefined }
+            <rect className={this.props.id} 
+              x={this.props.rect.x}
+              y={this.props.rect.y}
+              transform={this.props.rect.transform}
+              width={this.props.rect.width}
+              height={this.props.rect.height}
+              />
+            : undefined }
         </g>
       </svg>
     );

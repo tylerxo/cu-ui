@@ -32,7 +32,7 @@ export class Part extends React.Component<PartProps, PartState> {
     const id: string = 'part' + part;
     return (
       <Svg className="part" id={ id } box={ shape.box } color={ this.props.color }
-            polygon={ shape.polygon } path={ shape.path }>
+        polygon={ shape.polygon } path={ shape.path }>
       </Svg>
     );
   }
