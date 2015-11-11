@@ -4,6 +4,7 @@
   "description": "Camelot Unchained UI - wounds",
   "license": "MPL-2.0",
   "main": "src/ts/main.tsx",
+  "author": "City State Entertainment <support@citystateentertainment.com>",
   "contributors": [
     "mehuge@sorcerer.co.uk"
   ],
@@ -34,5 +35,6 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "cu-build-tools": "^0.1.8"
-  }
+  },
+  "private": true
 }
