@@ -4,12 +4,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+var name = 'injuries';
 
-#cse-ui-friendlytarget>#unitframe>#name {
-  color: #bbbbff;
-}
+module.exports = {
+  type: 'module',
+  path: __dirname,
+  name: name,
+};
