@@ -19,7 +19,7 @@ class ErrorMessage extends React.Component<any, any> {
        
     var commentNodes = this.props.messageList.map(function (comment: string, index: number) {
       return (
-        <li className='message' key={index + comment}>{comment}</li>
+        <li className='message' key={index}>{comment}</li>
       );
     });
 
