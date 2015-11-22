@@ -5,36 +5,36 @@
  */
 
 html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 #messages {
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
-    width: 350px;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 350px;
 }
 
 .message {
-    font-size: 90%;
-    color: white;
-    margin: 0 0 3px 0;
-    padding: 0;
-    height: 22px;
-    line-height: 22px;
-    text-align: center;
-    background-image: url('../images/alert-bg.png');
-    background-repeat: no-repeat;
+  font-size: 90%;
+  color: white;
+  margin: 0 0 3px 0;
+  padding: 0;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  background-image: url('../images/alert-bg.png');
+  background-repeat: no-repeat;
 }
 
 /* Styles for ReactCSSTransitionGroup disabling for now till I can get them working
 .example-enter {
 	opacity: 0.01;
-    transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
 }
 .example-enter.example-enter-active {
 	opacity: 1;
@@ -43,8 +43,8 @@ html, body {
 .example-leave {
 	opacity: 1;
 	transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
 }
 .example-leave.example-leave-active {
 	opacity: 0.01;
