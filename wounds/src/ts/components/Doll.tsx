@@ -69,10 +69,10 @@ export class Doll extends React.Component<DollProps, DollState> {
     for (let i = 0; i < map.length; i++) {
       let injury = map.getInjury(i);
       const part = getPart(i);
-      const maxHealth = (injury.maxHealth * 5);
-      const currentHealth = injury.wounds < 5 ? ((4 - injury.wounds) * injury.maxHealth) + injury.health : 0;
+      const maxHealth = (injury.maxHealth * 3);
+      const currentHealth = injury.wounds < 3 ? ((2 - injury.wounds) * injury.maxHealth) + injury.health : 0;
       const state = getState(currentHealth, maxHealth);
-      const color = this.props.colors.getColorForWound(injury.wounds);
+      const color = this.props.colors.getColorForWound(injury.health == 0 ? injury.wounds + 1 : injury.wounds);
       parts.push(
         <Part key={'part.'+part}
           part={part}

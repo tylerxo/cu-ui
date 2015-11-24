@@ -6,7 +6,7 @@
 
 /// <reference path="../../tsd/tsd.d.ts" />
 
-const defaultColors: string[] = ['#19b24b', '#feeb00', '#fe1e14', '#8a150b', '#200000'];
+const defaultColors: string[] = ['#19b24b', '#feeb00', '#fe1e14', '#200000'];
 
 export class WoundColors {
   private key: string = "cse.wound.colors";
