@@ -4,6 +4,7 @@
   "description": "Camelot Unchained UI - errormessages",
   "license": "MPL-2.0",
   "main": "src/ts/main.tsx",
+  "private": true,
   "contributors": ["Grimmlet"],
   "keywords": [
     "Camelot",

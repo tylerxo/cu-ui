@@ -10,7 +10,6 @@ import * as cu from 'cu-core';
 import events from 'cu-events';
 import * as React from 'react/addons';
 
-//const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 declare const cuAPI: any;
 
 class ErrorMessage extends React.Component<any, any> {
@@ -23,7 +22,6 @@ class ErrorMessage extends React.Component<any, any> {
       );
     });
 
-    //TODO: figure out why <ReactCSSTransitionGroup transitionName="example"> isn't working
     return (
       <ul id='messages'>
         {commentNodes}
@@ -61,7 +59,11 @@ class ErrorMessagesApp extends React.Component<any, ErrorMessagesAppState> {
     //todo: event-ize OnAbilityError
     cuAPI.OnAbilityError((message: any) => {
             
-      var newErrorMessage = this.getMessageText(parseInt(message));
+      const newErrorMessage = this.getMessageText(parseInt(message));
+
+      if (!newErrorMessage) {
+        return;
+      }
 
       //add the new error to the top of the array
       var nextItems = new Array<string>(newErrorMessage).concat(this.state.items);

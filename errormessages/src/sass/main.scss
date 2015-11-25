@@ -28,25 +28,3 @@ html, body {
   background-image: url('../images/alert-bg.png');
   background-repeat: no-repeat;
 }
-
-/* Styles for ReactCSSTransitionGroup disabling for now till I can get them working
-.example-enter {
-	opacity: 0.01;
-  transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -webkit-transition: opacity 1s ease-in-out;
-}
-.example-enter.example-enter-active {
-	opacity: 1;
-}
-
-.example-leave {
-	opacity: 1;
-	transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -webkit-transition: opacity 1s ease-in-out;
-}
-.example-leave.example-leave-active {
-	opacity: 0.01;
-}
-*/
