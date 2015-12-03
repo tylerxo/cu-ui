@@ -6,7 +6,10 @@
   "bundle": "src/tsd/tsd.d.ts",
   "installed": {
     "react/react.d.ts": {
-      "commit": "62eedc3121a5e28c50473d2e4a9cefbcb9c3957f"
+      "commit": "78d36dd49b6b55b9fdfe61776a12bf05c8b07777"
+    },
+    "react/react-dom.d.ts": {
+      "commit": "78d36dd49b6b55b9fdfe61776a12bf05c8b07777"
     }
   }
 }

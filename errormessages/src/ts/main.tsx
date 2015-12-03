@@ -6,13 +6,18 @@
 
 /// <reference path="../tsd/tsd.d.ts" />
 
-import * as cu from 'cu-core';
+import {client} from 'cu-core'
 import events from 'cu-events';
-import * as React from 'react/addons';
+import * as React from 'react';
+import * as ReactDom from 'react-dom';
 
-declare const cuAPI: any;
+interface ErrorMessageProps {
+  messageList: Array<string>;
+}
 
-class ErrorMessage extends React.Component<any, any> {
+interface ErrorMessageState { }
+
+class ErrorMessage extends React.Component<ErrorMessageProps, ErrorMessageState> {
 
   render() {
        
@@ -30,11 +35,8 @@ class ErrorMessage extends React.Component<any, any> {
   }
 }
 
-/* 
-*  Trying to set the state as a Array<string> was throwing errors so I
-*  wrapped the array in a class (like the KOS example) and it worked.
-*  Not sure why but I'll go with this for now
-*/
+interface ErrorMessageAppProps { }
+
 class ErrorMessagesAppState {
   public items: Array<string>;
 
@@ -43,7 +45,7 @@ class ErrorMessagesAppState {
   }
 }
 
-class ErrorMessagesApp extends React.Component<any, ErrorMessagesAppState> {
+class ErrorMessagesApp extends React.Component<ErrorMessageAppProps, ErrorMessagesAppState> {
 
   constructor(props: any) {
     super(props);
@@ -56,8 +58,7 @@ class ErrorMessagesApp extends React.Component<any, ErrorMessagesAppState> {
   }
 
   init() {
-    //todo: event-ize OnAbilityError
-    cuAPI.OnAbilityError((message: any) => {
+    client.OnAbilityError((message: any) => {
             
       const newErrorMessage = this.getMessageText(parseInt(message));
 
@@ -107,4 +108,6 @@ class ErrorMessagesApp extends React.Component<any, ErrorMessagesAppState> {
   }
 }
 
-React.render(<ErrorMessagesApp />, document.getElementById('content'));
+ReactDom.render(<ErrorMessagesApp />, document.getElementById('content'));
+
+

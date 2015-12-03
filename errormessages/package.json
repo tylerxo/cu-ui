@@ -5,7 +5,9 @@
   "license": "MPL-2.0",
   "main": "src/ts/main.tsx",
   "private": true,
-  "contributors": ["Grimmlet"],
+  "contributors": [
+    "Grimmlet"
+  ],
   "keywords": [
     "Camelot",
     "Unchained",
@@ -24,7 +26,8 @@
   },
   "dependencies": {
     "cu-core": "^0.1.3",
-    "react": "^0.14.3"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
