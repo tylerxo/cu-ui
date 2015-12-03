@@ -8,11 +8,9 @@
 
 import * as React from 'react';
 import * as Reflux from 'reflux';
-import events from 'cu-events';
-import { EnemyTargetStore } from 'cu-stores';
-import { UnitFrame } from 'cu-components';
+import {events, stores, components} from 'camelot-unchained';
 
-const enemyTarget: any = EnemyTargetStore.create();
+const enemyTarget: any = stores.EnemyTargetStore.create();
 
 const EnemyTarget = React.createClass({
 
@@ -36,7 +34,7 @@ const EnemyTarget = React.createClass({
   // Render the unit frame using character data
   render: function() {
     var state = this.state, enemyTarget = state.enemyTarget;
-    return (<UnitFrame
+    return (<components.UnitFrame
       name={enemyTarget.name} race={enemyTarget.race}
       health={enemyTarget.health} maxHealth={enemyTarget.maxHealth}
       stamina={enemyTarget.stamina} maxStamina={enemyTarget.maxStamina}

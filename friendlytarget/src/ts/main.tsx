@@ -7,11 +7,9 @@
  /// <reference path="../tsd/tsd.d.ts" />
 import * as React from 'react';
 import * as Reflux from 'reflux';
-import events from 'cu-events';
-import { FriendlyTargetStore } from 'cu-stores';
-import { UnitFrame } from 'cu-components';
+import {events, stores, components} from 'camelot-unchained';
 
-const friendlyTarget : any = FriendlyTargetStore.create();
+const friendlyTarget : any = stores.FriendlyTargetStore.create();
 
 const FriendlyTarget = React.createClass({
 
@@ -35,7 +33,7 @@ const FriendlyTarget = React.createClass({
   // Render the unit frame using FriendlyTarget data
   render: function() {
     var state = this.state, friendlyTarget = state.friendlyTarget;
-    return (<UnitFrame
+    return (<components.UnitFrame
         name={friendlyTarget.name} race={friendlyTarget.race}
         health={friendlyTarget.health} maxHealth={friendlyTarget.maxHealth}
         stamina={friendlyTarget.stamina} maxStamina={friendlyTarget.maxStamina}

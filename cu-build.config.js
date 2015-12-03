@@ -22,11 +22,7 @@ var config = {
     },
   },
   libraries: {
-    'cu-core': 'https://github.com/CUModSquad/cu-core.git#master',
-    'cu-components': 'https://github.com/CUModSquad/cu-components.git#master',
-    'cu-styles': 'https://github.com/CUModSquad/cu-styles.git#master',
-    'cu-events': 'https://github.com/CUModSquad/cu-events.git#master',
-    'cu-stores': 'https://github.com/CUModSquad/cu-stores.git#master',
+    'camelot-unchained': 'https://github.com/CUModSquad/camelot-unchained-client-library.git#master'
   }
 };
 

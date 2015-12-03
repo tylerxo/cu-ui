@@ -7,15 +7,13 @@
 /// <reference path="../tsd/tsd.d.ts" />
 
 import * as React from 'react';
-import {Player} from 'cu-core';
-import events from 'cu-events';
-import { CharacterStore } from 'cu-stores'; 
+import {Player, events, stores} from 'camelot-unchained';
 import { Doll } from './components/Doll';
 import { Stats } from './components/Stats';
 import { Buffs } from './components/Buffs';
 import { WoundColors } from './classes/WoundColors';
 
-const character : any = CharacterStore.create();
+const character : any = stores.CharacterStore.create();
 
 class WoundsUIState { 
   public character: any;

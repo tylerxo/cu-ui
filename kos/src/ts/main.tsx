@@ -5,8 +5,7 @@
  */
 
 /// <reference path="../tsd/tsd.d.ts" />
-import {Player} from 'cu-core';
-import events from 'cu-events';
+import {Player, events} from 'camelot-unchained';
 import * as React from 'react';
 
 class KOSList extends React.Component<any, any> {

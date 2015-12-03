@@ -7,11 +7,9 @@
 /// <reference path="../tsd/tsd.d.ts" />
 import * as React from 'react';
 import * as Reflux from 'reflux';
-import events from 'cu-events';
-import { CharacterStore } from 'cu-stores';
-import { UnitFrame } from 'cu-components';
+import {events, stores, components} from 'camelot-unchained';
 
-const character: any = CharacterStore.create();
+const character: any = stores.CharacterStore.create();
 
 const Character = React.createClass({
 
@@ -43,7 +41,7 @@ const Character = React.createClass({
   render: function() {
     const state = this.state, character = state.character;
     return (
-      <UnitFrame
+      <components.UnitFrame
         className="character"
         name={character.name} race={character.race}
         health={character.health} maxHealth={character.maxHealth}
