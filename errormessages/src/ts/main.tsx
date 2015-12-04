@@ -6,8 +6,7 @@
 
 /// <reference path="../tsd/tsd.d.ts" />
 
-import {client} from 'cu-core'
-import events from 'cu-events';
+import {client, events} from 'camelot-unchained'
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 
