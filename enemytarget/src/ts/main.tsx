@@ -4,47 +4,59 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+ // Hostile Target Wounds Frame
+
 /// <reference path="../tsd/tsd.d.ts" />
 
 import * as React from 'react';
-import * as Reflux from 'reflux';
-import {events, stores, components} from 'camelot-unchained';
+import {events, stores, components, Player} from 'camelot-unchained';
 
-const enemyTarget: any = stores.EnemyTargetStore.create();
+const character : any = stores.EnemyTargetStore.create();
 
-const EnemyTarget = React.createClass({
+class WoundsUIState {
+  public character: any;
+  constructor() {
+    this.character = null;
+  }
+}
+class WoundsUIProps {}
 
-  // Hook store up to component.  Each time character data is changed,
-  // our state is updated, triggering a render
-  mixins: [
-    Reflux.connect(enemyTarget.store, 'enemyTarget')
-  ],
-
-  // Provide an initial state (TODO: is there a better way to do this?)
-  getInitialState: function() {
-    return { enemyTarget: enemyTarget.store.info };
-  },
-
-  componentDidMount() {
-    // Start listening for character events
-    // FIXME: broken, currently no-op
-    enemyTarget.actions.start();
-  },
-
-  // Render the unit frame using character data
-  render: function() {
-    var state = this.state, enemyTarget = state.enemyTarget;
-    return (<components.UnitFrame
-      name={enemyTarget.name} race={enemyTarget.race}
-      health={enemyTarget.health} maxHealth={enemyTarget.maxHealth}
-      stamina={enemyTarget.stamina} maxStamina={enemyTarget.maxStamina}
-      injuries={enemyTarget.injuries}
-      />
+class WoundsUI extends React.Component<WoundsUIProps, WoundsUIState> {
+  constructor(props: WoundsUIProps) {
+    super(props);
+    character.store.listen(this.oncharacter.bind(this));
+  }
+  componentWillMount() {
+    // client.exe cuAPI BUG:-
+    // We should be able to start events in componentDidMount except for
+    // a client bug, that means if the event registrations are triggered
+    // too long after the client starts (or not suring oninitialised callback)
+    // then registering for the events does not get sent the initial data.
+    // This can be seen by doing /closeui character ; /openui character
+    // it will not be given the initial character data.  The problem is not
+    // seen on initial load of the client because the UI is opened before
+    // the character info is sent anyway.
+    this.oncharacter(character.store.info);
+  }
+  oncharacter(character: Player) {
+    this.setState({ character: character });
+  }
+  render() {
+    const character = this.state.character;
+    return (
+      <div>
+        <components.WoundFrame injuries={character.injuries}
+          health={character.health} healthMax={character.maxHealth}
+          stamina={character.stamina} staminaMax={character.maxStamina}
+          //panic={character.panic} panicMax={character.maxPanic}
+          //temp={character.temp} tempMax={character.maxTemp}
+          />
+      </div>
     );
   }
-});
+}
 
-events.on("init", function() {
-  enemyTarget.actions.start();  // HACK for cuAPI bug
-  React.render(<EnemyTarget/>, document.getElementById("cse-ui-enemytarget"));
+events.on('init', () => {
+  character.actions.start();
+  React.render(<WoundsUI/>, document.getElementById("cse-ui-wounds"));
 });

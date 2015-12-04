@@ -2,10 +2,11 @@
   "name": "friendlytarget",
   "mainFile": "index.html",
   "rect": {
-    "left": 300,
-    "top": 150,
-    "right": 478,
-    "bottom": 289
+    "left": 843,
+    "top": 630,
+    "right": 1025,
+    "bottom": 930
   },
-  "handlesFriendlyTarget": true
+  "handlesFriendlyTarget": true,
+  "layer": 1
 }
