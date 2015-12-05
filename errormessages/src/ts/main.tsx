@@ -10,30 +10,6 @@ import {client, events} from 'camelot-unchained'
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 
-interface ErrorMessageProps {
-  messageList: Array<string>;
-}
-
-interface ErrorMessageState { }
-
-class ErrorMessage extends React.Component<ErrorMessageProps, ErrorMessageState> {
-
-  render() {
-       
-    var commentNodes = this.props.messageList.map(function (comment: string, index: number) {
-      return (
-        <li className='message' key={index}>{comment}</li>
-      );
-    });
-
-    return (
-      <ul id='messages'>
-        {commentNodes}
-      </ul>
-    );
-  }
-}
-
 interface ErrorMessageAppProps { }
 
 class ErrorMessagesAppState {
@@ -45,7 +21,6 @@ class ErrorMessagesAppState {
 }
 
 class ErrorMessagesApp extends React.Component<ErrorMessageAppProps, ErrorMessagesAppState> {
-
   constructor(props: any) {
     super(props);
 
@@ -58,7 +33,6 @@ class ErrorMessagesApp extends React.Component<ErrorMessageAppProps, ErrorMessag
 
   init() {
     client.OnAbilityError((message: any) => {
-            
       const newErrorMessage = this.getMessageText(parseInt(message));
 
       if (!newErrorMessage) {
@@ -66,7 +40,7 @@ class ErrorMessagesApp extends React.Component<ErrorMessageAppProps, ErrorMessag
       }
 
       //add the new error to the top of the array
-      var nextItems = new Array<string>(newErrorMessage).concat(this.state.items);
+      let nextItems = new Array<string>(newErrorMessage).concat(this.state.items);
       this.setState({ items: nextItems });
 
       setTimeout(this.removeMessage, 3000);
@@ -74,14 +48,13 @@ class ErrorMessagesApp extends React.Component<ErrorMessageAppProps, ErrorMessag
   }
 
   removeMessage() {
-
     //remove the bottom item from the array
     if (0 == this.state.items.length) {
       return;
     }
 
-    var nextItems = this.state.items;
-    var startIndex = nextItems.length - 1;
+    let nextItems = this.state.items;
+    let startIndex = nextItems.length - 1;
     nextItems.splice(startIndex, 1);
     this.setState({ items: nextItems });
   }
@@ -100,9 +73,17 @@ class ErrorMessagesApp extends React.Component<ErrorMessageAppProps, ErrorMessag
     }
   }
 
+  getMessageNodes(message: string, index: number) {
+    return (
+      <li className='message' key={index}>{message}</li>
+      );
+  }
+
   render() {
     return (
-      <ErrorMessage messageList={this.state.items}/>
+      <ul id='messages'>
+        {this.state.items.map(this.getMessageNodes)}
+      </ul>
     );
   }
 }
