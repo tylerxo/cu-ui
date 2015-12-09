@@ -9,6 +9,7 @@
 /// <reference path="../tsd/tsd.d.ts" />
 
 import * as React from 'react';
+import * as ReactDom from 'react-dom';
 import {events, stores, components, Player} from 'camelot-unchained';
 
 const character : any = stores.EnemyTargetStore.create();
@@ -41,6 +42,7 @@ class WoundsUI extends React.Component<WoundsUIProps, WoundsUIState> {
   oncharacter(character: Player) {
     this.setState({ character: character });
   }
+  // Render the unit frame using character data
   render() {
     const character = this.state.character;
     return (
@@ -58,5 +60,5 @@ class WoundsUI extends React.Component<WoundsUIProps, WoundsUIState> {
 
 events.on('init', () => {
   character.actions.start();
-  React.render(<WoundsUI/>, document.getElementById("cse-ui-wounds"));
+  ReactDom.render(<WoundsUI/>, document.getElementById("cse-ui-wounds"));
 });
