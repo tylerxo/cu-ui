@@ -28,6 +28,7 @@
         "./src/**/*.tsx"
     ],
     "files": [
+        "./src/tsd/react/react-dom.d.ts",
         "./src/tsd/react/react.d.ts",
         "./src/tsd/tsd.d.ts",
         "./src/ts/main.tsx"
