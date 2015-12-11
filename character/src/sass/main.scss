@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-@import "../../node_modules/camelot-unchained/src/styles/main";
+@import "../../node_modules/camelot-unchained/lib/sass/main";
 
 body {
   @include wounds-body(100%);

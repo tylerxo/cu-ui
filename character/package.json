@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "camelot-unchained": "latest",
-    "react": "^0.14.3"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
