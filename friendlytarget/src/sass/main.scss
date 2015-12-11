@@ -4,12 +4,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+@import "../../node_modules/camelot-unchained/src/styles/main";
+
+body {
+  @include wounds-body(80%);
 }
 
-#cse-ui-friendlytarget>#unitframe>#name {
-  color: #bbbbff;
+#cse-ui-wounds {
+  @include wounds-base(rgba(0, 0, 80, 0.7));
 }
