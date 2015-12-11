@@ -2,9 +2,9 @@
   "name": "friendlytarget",
   "mainFile": "index.html",
   "rect": {
-    "left": 843,
+    "left": 456,
     "top": 630,
-    "right": 1025,
+    "right": 628,
     "bottom": 930
   },
   "handlesFriendlyTarget": true,

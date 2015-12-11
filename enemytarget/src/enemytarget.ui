@@ -2,9 +2,9 @@
   "name": "enemytarget",
   "mainFile": "index.html",
   "rect": {
-    "left": 456,
+    "left": 843,
     "top": 630,
-    "right": 628,
+    "right": 1025,
     "bottom": 930
   },
   "handlesAbilities": false,

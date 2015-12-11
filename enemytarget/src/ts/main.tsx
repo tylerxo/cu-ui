@@ -10,7 +10,7 @@
 
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import {events, stores, components, Player} from 'camelot-unchained';
+import {events, stores, components, Player, client} from 'camelot-unchained';
 
 const character : any = stores.EnemyTargetStore.create();
 
@@ -23,6 +23,7 @@ class WoundsUIState {
 class WoundsUIProps {}
 
 class WoundsUI extends React.Component<WoundsUIProps, WoundsUIState> {
+  private visible: boolean = true;
   constructor(props: WoundsUIProps) {
     super(props);
     character.store.listen(this.oncharacter.bind(this));
@@ -45,6 +46,17 @@ class WoundsUI extends React.Component<WoundsUIProps, WoundsUIState> {
   // Render the unit frame using character data
   render() {
     const character = this.state.character;
+    if (character.name === "") {
+      client.HideUI('enemytarget');
+      this.visible = false;
+      return <div />
+    }
+    
+    if (!this.visible) {
+      client.ShowUI('enemytarget');
+      this.visible = true;
+    }
+    
     return (
       <div>
         <components.WoundFrame injuries={character.injuries}
