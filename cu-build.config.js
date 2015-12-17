@@ -10,7 +10,7 @@ var config = {
   name: 'cu-ui',
   publish: {
     dest: __dirname + '/publish',
-    cse_dest: __dirname + '/publish-cse',
+    cse_dest: __dirname + '../CamelotUnchained/MMO/Client/Assets',
   },
   build: {
     ui_nested: true,
