@@ -60,7 +60,8 @@ class WoundsUI extends React.Component<WoundsUIProps, WoundsUIState> {
     
     return (
       <div>
-        <components.WoundFrame injuries={character.injuries}
+        <components.WoundFrame  name={character.name}
+          injuries={character.injuries}
           health={character.health} healthMax={character.maxHealth}
           stamina={character.stamina} staminaMax={character.maxStamina}
           panic={15} panicMax={75}
