@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "cu-ui-inventory",
+  "name": "cu-ui-equippedgear",
   "version": "0.1.0",
-  "description": "Camelot Unchained UI - inventory",
+  "description": "Camelot Unchained UI - equippedgear",
   "license": "MPL-2.0",
   "main": "src/ts/main.tsx",
   "author": "City State Entertainment, LLC <support@citystateentertainment.com>",
