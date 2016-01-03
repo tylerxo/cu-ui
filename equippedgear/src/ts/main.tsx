@@ -12,10 +12,5 @@ import * as ReactDOM from 'react-dom';
 import {EquippedGearWindow} from './components/equippedgear-window';
 
 events.on('init', () => {
-  ReactDOM.render(
-    (
-      <EquippedGearWindow />
-    ),
-    document.getElementById('equippedgear')
-  );
+  ReactDOM.render(<EquippedGearWindow />, document.getElementById('equippedgear'));
 });

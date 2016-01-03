@@ -12,10 +12,5 @@ import * as ReactDOM from 'react-dom';
 import {InventoryWindow} from './components/inventory-window';
 
 events.on('init', () => {
-  ReactDOM.render(
-    (
-      <InventoryWindow />
-    ),
-    document.getElementById('inventory')
-  );
+  ReactDOM.render(<InventoryWindow />, document.getElementById('inventory'));
 });

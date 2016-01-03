@@ -48,7 +48,7 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
   }
 
   render() {
-    const itemGroups: any[] = [];
+    const itemGroups: JSX.Element[] = [];
     this.state.itemGroups.forEach((group: ItemGroup, index: number) => {
       itemGroups.push((
         <Tooltip placement="topLeft" key={'item-tooltip' + index} overlay={this.renderTooltip.call(this, group.item)} arrowContent={<div className="cu-tooltip-arrow-inner"></div>} prefixCls="cu-tooltip" mouseLeaveDelay={0} mouseEnterDelay={0.25}>

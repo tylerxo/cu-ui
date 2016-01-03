@@ -31,9 +31,7 @@ export class ItemGroup {
    * @return {boolean} returns true if the item existing in the item group
    */
   hasItemID(id: string): boolean {
-    return this.itemIDs.filter((itemID: string) => {
-      return itemID == id;
-    }).length > 0;
+    return this.itemIDs.indexOf(id) > -1;
   }
 
   /**
@@ -53,17 +51,20 @@ export class ItemGroup {
    */
   removeItemID(id: string): void {
     if (this.hasItemID(id)) {
-      let itemIndex: number = null;
-      this.itemIDs.forEach((itemID: string, index: number) => {
-        if (itemID == id) {
-          itemIndex = index;
-        }
-      });
-      if (itemIndex != null) {
+      const itemIndex: number = this.itemIDs.indexOf(id);
+      if (itemIndex > -1) {
         this.itemIDs.splice(itemIndex, 1);
-        this.quantity -= 1;
+        this.quantity--;
       }
     }
+  }
+
+  static areItemsStackable(itemA: Item, itemB: Item): boolean {
+    return itemA.type == itemB.type
+      && itemA.name == itemB.name
+      && itemA.description == itemB.description
+      && itemA.carryingRequirement == itemB.carryingRequirement
+      && itemA.resourceID == itemB.resourceID;
   }
 
   /**
@@ -77,14 +78,7 @@ export class ItemGroup {
     inventory.items.forEach((item: Item) => {
       let stack: ItemGroup = null;
       itemGroups.forEach((itemGroup: ItemGroup) => {
-        if (
-          itemGroup.hasItemID(item.id) == false
-          && itemGroup.item.type == item.type
-          && itemGroup.item.name == item.name
-          && itemGroup.item.description == item.description
-          && itemGroup.item.carryingRequirement == item.carryingRequirement
-          && itemGroup.item.resourceID == item.resourceID
-        ) {
+        if (!itemGroup.hasItemID(item.id) && ItemGroup.areItemsStackable(itemGroup.item, item)) {
           stack = itemGroup;
         }
       });

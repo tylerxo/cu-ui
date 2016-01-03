@@ -47,7 +47,7 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
   }
 
   render() {
-    const items: any[] = [];
+    const items: JSX.Element[] = [];
 
     this.gearSlots.forEach((slotId: string, index: number) => {
       const item = this.state.equippedgear.getItemInGearSlot(slotId);
