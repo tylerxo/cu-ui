@@ -9,6 +9,10 @@ This is what we're going to ship and we will take pull requests from the communi
 
 ---
 
+##### [Documentation / Wiki](https://github.com/csegames/cu-ui/wiki)
+
+---
+
 Installation
 ------------
 
