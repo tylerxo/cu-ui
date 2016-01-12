@@ -1,0 +1,18 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "src/tsd",
+  "bundle": "src/tsd/tsd.d.ts",
+  "installed": {
+    "react/react.d.ts": {
+      "commit": "984a41af67d76b5134e0d4991a30f813dfb8561f"
+    },
+    "react/react-addons-transition-group.d.ts": {
+      "commit": "984a41af67d76b5134e0d4991a30f813dfb8561f"
+    },
+    "react/react-addons-css-transition-group.d.ts": {
+      "commit": "984a41af67d76b5134e0d4991a30f813dfb8561f"
+    }
+  }
+}
