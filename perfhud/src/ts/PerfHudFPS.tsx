@@ -4,10 +4,17 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import {client} from 'camelot-unchained';
 import * as React from 'react';
+import {client} from 'camelot-unchained';
 
-export class PerfhudFps extends React.Component<PerfhudFpsProps, PerfhudFpsState> {
+export interface PerfHudFPSProps {
+}
+
+export interface PerfHudFPSState {
+  fps: string;
+}
+
+class PerfHudFPS extends React.Component<PerfHudFPSProps, PerfHudFPSState> {
 
   private pollInterval: number = 10;
   private parser: DOMParser;
@@ -45,9 +52,4 @@ export class PerfhudFps extends React.Component<PerfhudFpsProps, PerfhudFpsState
   }
 }
 
-export interface PerfhudFpsProps {
-}
-
-export interface PerfhudFpsState {
-  fps: string;
-}
+export default PerfHudFPS;

@@ -25,7 +25,7 @@
     "url": "https://github.com/csegames/cu-ui.git"
   },
   "dependencies": {
-    "camelot-unchained": "latest",
+    "camelot-unchained": "^0.1.17",
     "classnames": "^2.2.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
