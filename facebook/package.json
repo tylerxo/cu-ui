@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Camelot Unchained UI - facebook",
   "license": "MPL-2.0",
-  "main": "src/ts/main.tsx",
+  "main": "dist/index.html",
+  "author": "City State Entertainment, LLC <support@citystateentertainment.com>",
   "contributors": [{
     "name": "Stacey Schlenker",
     "email": "cloudsift@gmail.com"
@@ -16,7 +17,7 @@
     "cu-ui"
   ],
   "files": [
-    "lib/",
+    "dist/",
     "package.json",
     "README.md",
     "LICENSE"
@@ -25,10 +26,16 @@
     "type": "git",
     "url": "https://github.com/csegames/cu-ui.git"
   },
+  "scripts": {
+    "clean": "(rmdir /s /q dist) ^& exit 0",
+    "copy": "(robocopy src dist /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "build": "npm run clean && npm run copy -s",
+    "publish": "npm run build",
+    "serve": "http-server -p 9000 dist/"
+  },
   "dependencies": {
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "cu-build-tools": "^0.1.8"
+    "http-server": "^0.9.0"
   }
 }

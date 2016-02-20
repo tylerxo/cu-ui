@@ -4,8 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-/// <reference path="../tsd/tsd.d.ts" />
-
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import {client, events, plotPermissions, postPlotPermissions} from 'camelot-unchained';

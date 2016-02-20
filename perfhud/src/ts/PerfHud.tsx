@@ -7,7 +7,6 @@
 import {client, events} from 'camelot-unchained';
 import * as React from 'react';
 
-import PerfHudFPS from './PerfHudFPS';
 import PageSelect, {PageView} from './PageSelect';
 
 export interface PerfPage extends PageView {

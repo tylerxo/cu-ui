@@ -6,8 +6,6 @@
 
  // Hostile Target Wounds Frame
 
-/// <reference path="../tsd/tsd.d.ts" />
-
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import {events, stores, components, Player, client} from 'camelot-unchained';

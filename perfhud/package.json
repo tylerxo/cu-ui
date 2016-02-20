@@ -1,12 +1,14 @@
 {
   "private": true,
   "name": "cu-ui-perfhud",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Camelot Unchained UI - perfhud",
   "license": "MPL-2.0",
   "main": "src/ts/main.tsx",
+  "author": "City State Entertainment, LLC <support@citystateentertainment.com>",
   "contributors": [
-    "saddieeiddas <saddie.eiddas@gmail.com>"
+    "saddieeiddas <saddie.eiddas@gmail.com>",
+    "JB (codecorsair) <jb@codecorsair.com>"
   ],
   "keywords": [
     "Camelot",
@@ -24,14 +26,42 @@
     "type": "git",
     "url": "https://github.com/csegames/cu-ui.git"
   },
+  "config": {
+    "name": "perfhud"
+  },
+  "scripts": {
+    "typings": "typings install",
+    "clean:typings": "(rmdir /s /q typings) ^& exit 0",
+    "clean:tmp": "(rmdir /s /q tmp) ^& exit 0",
+    "clean:tmpp": "(rmdir /s /q tmpp) ^& exit 0",
+    "clean:publish": "(rmdir /s /q dist) ^& exit 0",
+    "clean": "npm run clean:typings && npm run clean:tmp && npm run clean:tmpp && npm run clean:publish",
+    "copy:misc": "(robocopy src\\ dist\\ /s /xf *.js /xf *.ts /xf *.tsx /xf *.scss) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "copy:third-party": "(robocopy src\\third-party dist\\third-party /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "copy": "npm run copy:third-party && npm run copy:misc",
+    "babel": "babel tmp -d tmpp",
+    "browserify": "browserify tmpp/main.js -o dist/js/%npm_package_config_name%.js",
+    "prebrowserify": "mkdirp dist/js",
+    "build:sass": "node-sass src/sass -o dist/css --importer node_modules/camelot-unchained/lib/third-party/sass-importer/sass-npm-importer.js",
+    "build": "tsc && npm run build:sass && npm run copy -s && npm run babel && npm run browserify && npm run clean:tmp -s && npm run clean:tmpp -s",
+    "prebuild": "npm run clean -s && npm run typings",
+    "publish": "npm run build",
+    "serve": "http-server -p 9000 dist/"
+  },
   "dependencies": {
-    "camelot-unchained": "^0.1.17",
-    "classnames": "^2.2.1",
+    "camelot-unchained": "latest",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "cu-build-tools": "latest"
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "browserify": "^13.0.0",
+    "http-server": "^0.9.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^3.4.2",
+    "typescript": "^1.8.0",
+    "typings": "^0.6.8"
   }
 }

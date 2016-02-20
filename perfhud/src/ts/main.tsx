@@ -4,8 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-/// <reference path="./main.d.ts"/>
-
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {events} from 'camelot-unchained';

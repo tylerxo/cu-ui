@@ -16,3 +16,5 @@ npm-debug.log
 /user-cu-build.config.js
 .csproj
 **/*.csproj
+/typings
+**/typings

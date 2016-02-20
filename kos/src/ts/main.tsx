@@ -4,9 +4,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-/// <reference path="../tsd/tsd.d.ts" />
 import {Player, events} from 'camelot-unchained';
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
 class KOSList extends React.Component<any, any> {
   render() {
@@ -109,4 +109,4 @@ class KOSApp extends React.Component<any, KOSAppState> {
   }
 }
 
-React.render(<KOSApp />, document.getElementById('app'));
+ReactDOM.render(<KOSApp />, document.getElementById('app'));

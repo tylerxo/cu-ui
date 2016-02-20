@@ -3,7 +3,7 @@ cu-ui
 
 > Camelot Unchained UI 2.0
 
-This repository contains all of the UI widgets in [Camelot Unchained](http://camelotunchained.com/v2/).
+This is the repository for the official UI modules in [Camelot Unchained](http://camelotunchained.com).
 This is the entire front-end UI for the game, not a partial stripped-down version.
 This is what we're going to ship and we will take pull requests from the community seriously.
 
@@ -22,15 +22,21 @@ Clone this repository:
 git clone https://github.com/csegames/cu-ui.git
 ```
 
-```
+Setup
+
+```sh
+#install required global npm packages
+npm i -g babel-cli babel-core babel-preset-es2015 node-sass browserify typescript@1.8.0 typings
+
 # install development packages
 npm install
+```
 
-# install the UI
-gulp install
+Install & Build UI Modules
 
-# publish the UI
-gulp publish
+```sh
+# Install & Build all UI modules
+npm start
 ```
 
 ---
@@ -38,63 +44,36 @@ gulp publish
 Development
 -----------
 
-To develop the UI you have the following commands (provided by cu-build-tools):
+To develop the UI you have the following commands
 
-#### `gulp install`
+#### `npm run clean`
 
-This will ensure all the modules/libraries have their dependencies installed properly.
-It also generates `.csproj` files for integration with VS
+This will delete the 'publish' directory.
 
-#### `gulp publish`
+#### `npm run build`
 
-This will build all the modules/libraries into the `publish` directory ready for testing in the client.
+This will build all the modules into the 'publish' directory.
 
-#### `gulp server`
+#### `npm run build:install`
 
-This will start a server to preview all the modules/libraries. It will also inject scripts declared in the build config.
+This will run npm install within each module.
 
-#### `gulp %MODULE%`
+#### `npm run build:hatchery`
 
-This will publish a specific module, e.g. `gulp character` will publish the `character` module.
+This will build all the modules into the user-ui override directory for Hatchery. '%localappdata%/CSE/CamelotUnchained/4/INTERFACE'
 
-#### `gulp %MODULE%::%TASK`
+#### `npm run clean:hatchery`
 
-This will allow you to run a gulp task on a specific module, e.g. `gulp character::watch` will start watching the
-character module for changes.
+This will delete the user-ui override directory for Hatchery. '%localappdata%/CSE/CamelotUnchained/4/INTERFACE'
 
-Publishing to User UI Folder
-----------------------------
 
-To publish to the Client User UI folder you will need to add the following to your publish command:
+#### `npm run clean:hatchery`
 
-```
---user-ui
-```
+This will delete the user-ui override directory for Wyrmling. '%localappdata%/CSE/CamelotUnchained/10/INTERFACE'
 
-Or if you want to target a specific channel you can add the channel number to the command.
+#### `npm run clean:cube`
 
-```
---user-ui 10
-```
-
-Overriding `cu-build.config.js`
------------------------------
-
-You can override configuration in `cu-build.config.js` by creating a file called
-`user-cu-build.config.js` and exporting override configuration.
-
-Example:
-
-```js
-// user-cu-build.config.js
-
-module.exports = {
-  publish: {
-    dest: __dirname + '/my-custom-publish-directory',
-  }
-};
-
-```
+This will delete the user-ui override directory for C.U.B.E. '%localappdata%/CSE/CamelotUnchained/27/INTERFACE'
 
 ---
 
@@ -110,9 +89,11 @@ Chrome Version: 35.0 - build 1916 - patch 138
 UI Discussions
 --------------
 
-For discussion with your fellow intrepid modders and hackers, hang out in our backer forums at:
+For discussion with your fellow intrepid modders, hang out in our backer forums at:
 
-> https://forums.camelotunchained.com/forum/63-ui-modding-hacking/
+> https://forums.camelotunchained.com/forum/63-ui-modding-api/
+
+Or visit us on the CSE XMPP chat server in the _modsquad room
 
 ---
 
