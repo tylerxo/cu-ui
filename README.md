@@ -62,12 +62,20 @@ This will run npm install within each module.
 
 This will build all the modules into the user-ui override directory for Hatchery. '%localappdata%/CSE/CamelotUnchained/4/INTERFACE'
 
+#### `npm run build:wyrmling`
+
+This will build all the modules into the user-ui override directory for Wyrmling. '%localappdata%/CSE/CamelotUnchained/10/INTERFACE'
+
+#### `npm run build:cube`
+
+This will build all the modules into the user-ui override directory for C.U.B.E. '%localappdata%/CSE/CamelotUnchained/27/INTERFACE'
+
 #### `npm run clean:hatchery`
 
 This will delete the user-ui override directory for Hatchery. '%localappdata%/CSE/CamelotUnchained/4/INTERFACE'
 
 
-#### `npm run clean:hatchery`
+#### `npm run clean:wyrmling`
 
 This will delete the user-ui override directory for Wyrmling. '%localappdata%/CSE/CamelotUnchained/10/INTERFACE'
 
