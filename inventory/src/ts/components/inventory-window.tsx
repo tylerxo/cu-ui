@@ -5,7 +5,7 @@
  */
 
 import * as React from 'react';
-import {client, events, Inventory, Item, itemType, gearSlot} from 'camelot-unchained';
+import {client, events, Inventory, Item, gearSlot} from 'camelot-unchained';
 import ClassNames from 'classnames';
 import {ItemGroup} from './item-group';
 import Tooltip from 'rc-tooltip';
@@ -42,22 +42,24 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
   }
 
   useItem(group: ItemGroup): void {
-    if (group.item.type === itemType.EQUIPABLE) {
+    if (group.item.gearSlot != 0) {
       client.EquipItem(group.getFirstItemID());
     }
+  }
+
+  dropItem(group: ItemGroup): void {
+    client.DropItem(group.getFirstItemID());
   }
 
   render() {
     const itemGroups: JSX.Element[] = [];
     this.state.itemGroups.forEach((group: ItemGroup, index: number) => {
       itemGroups.push((
-        <Tooltip placement="topLeft" key={'item-tooltip' + index} overlay={this.renderTooltip.call(this, group.item)} arrowContent={<div className="cu-tooltip-arrow-inner"></div>} prefixCls="cu-tooltip" mouseLeaveDelay={0} mouseEnterDelay={0.25}>
-          <li key={'item-group' + index} onDoubleClick={this.useItem.bind(this, group)} onContextMenu={this.useItem.bind(this, group)}>
+          <li key={'item-group' + index} onDoubleClick={this.useItem.bind(this, group) } onContextMenu={this.dropItem.bind(this, group )}>
             <div className="icon"><img src="../../interface-lib/camelot-unchained/images/items/icon.png" /></div>
             <div className="name">{group.item.name}</div>
             <div className="quantity">{group.quantity}</div>
           </li>
-        </Tooltip>
       ));
     });
     return (
@@ -90,10 +92,6 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
             <td>{item.description}</td>
           </tr>
           <tr>
-            <th>Type</th>
-            <td>{this.getItemTypeName(item.type)} ({item.type})</td>
-          </tr>
-          <tr>
             <th>Gear Slot</th>
             <td>{this.getGearSlotName(item.gearSlot)} ({item.gearSlot})</td>
           </tr>
@@ -105,26 +103,9 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
             <th>Resource ID</th>
             <td className="font-monospace">{item.resourceID}</td>
           </tr>
-          <tr>
-            <th>CarryRequirement</th>
-            <td>{item.carryingRequirement}</td>
-          </tr>
         </tbody>
       </table>
     );
-  }
-
-  getItemTypeName(type: itemType): string {
-    switch (type) {
-      case itemType.NONE:
-        return 'None';
-      case itemType.EQUIPABLE:
-        return 'Equipable';
-      case itemType.RESOURCE:
-        return 'Resource';
-      default:
-        return 'None';
-    }
   }
 
   getGearSlotName(slot: gearSlot): string {

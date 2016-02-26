@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import {Inventory, Item, itemType} from 'camelot-unchained';
+import {Inventory, Item} from 'camelot-unchained';
 
 /**
  * ItemGroup
@@ -60,10 +60,8 @@ export class ItemGroup {
   }
 
   static areItemsStackable(itemA: Item, itemB: Item): boolean {
-    return itemA.type == itemB.type
-      && itemA.name == itemB.name
+    return itemA.name == itemB.name
       && itemA.description == itemB.description
-      && itemA.carryingRequirement == itemB.carryingRequirement
       && itemA.resourceID == itemB.resourceID;
   }
 
@@ -91,7 +89,7 @@ export class ItemGroup {
 
     itemGroups.sort((a: ItemGroup, b: ItemGroup) => {
       // can potentially sort by gearSlot (a.item.gearSlot - b.item.gearSlot)
-      return a.item.type - b.item.type || compareString(a.item.name, b.item.name);
+      return compareString(a.item.name, b.item.name);
     });
 
     return itemGroups;

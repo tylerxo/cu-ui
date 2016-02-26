@@ -110,10 +110,6 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
             <th>Resource ID</th>
             <td className="font-monospace">{item.resourceID}</td>
           </tr>
-          <tr>
-            <th>CarryRequirement</th>
-            <td>{item.carryingRequirement}</td>
-          </tr>
         </tbody>
       </table>
     );
