@@ -5,7 +5,7 @@
 */
 
 $cu-styles-root: '../../../interface-lib/camelot-unchained/styles/';
-@import "../../node_modules/camelot-unchained/lib/main.scss";
+@import "../../node_modules/camelot-unchained/lib/index.scss";
 
 body {
   overflow: hidden;
@@ -63,4 +63,3 @@ select {
   margin: 0px;
   padding: 0px;
 }
-

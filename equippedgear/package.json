@@ -29,12 +29,13 @@
     "name": "equippedgear"
   },
   "scripts": {
-    "typings": "typings install",
+    "postinstall": "npm run typings",
+    "typings": "npm run clean:typings && typings install",
     "clean:typings": "(rmdir /s /q typings) ^& exit 0",
     "clean:tmp": "(rmdir /s /q tmp) ^& exit 0",
     "clean:tmpp": "(rmdir /s /q tmpp) ^& exit 0",
     "clean:publish": "(rmdir /s /q dist) ^& exit 0",
-    "clean": "npm run clean:typings && npm run clean:tmp && npm run clean:tmpp && npm run clean:publish",
+    "clean": "npm run clean:tmp && npm run clean:tmpp && npm run clean:publish",
     "copy:misc": "(robocopy src\\ dist\\ /s /xf *.js /xf *.ts /xf *.tsx /xf *.scss) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
     "copy:third-party": "(robocopy src\\third-party dist\\third-party /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
     "copy": "npm run copy:third-party && npm run copy:misc",
@@ -43,9 +44,18 @@
     "prebrowserify": "mkdirp dist/js",
     "build:sass": "node-sass ./src/sass -o dist/css --importer node_modules/camelot-unchained/lib/third-party/sass-importer/sass-npm-importer.js",
     "build": "tsc && npm run build:sass && npm run copy -s && npm run babel && npm run browserify && npm run clean:tmp -s && npm run clean:tmpp -s",
-    "prebuild": "npm run clean -s && npm run typings",
+    "prebuild": "npm run clean -s",
     "publish": "npm run build",
-    "serve": "http-server -p 9000 dist/"
+    "serve": "http-server -p 9000 dist/",
+    "clean:hatchery": "(rmdir /s /q %localappdata%/CSE/CamelotUnchained/4/INTERFACE/%npm_package_config_name%) ^& exit 0",
+    "copy:hatchery": "(robocopy dist\\ %localappdata%/CSE/CamelotUnchained/4/INTERFACE/%npm_package_config_name%\\ /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "build:hatchery": "npm run build && npm run clean:hatchery && npm run copy:hatchery",
+    "clean:wyrmling": "(rmdir /s /q %localappdata%/CSE/CamelotUnchained/10/INTERFACE/%npm_package_config_name%) ^& exit 0",
+    "copy:wyrmling": "(robocopy dist\\ %localappdata%/CSE/CamelotUnchained/10/INTERFACE/%npm_package_config_name%\\ /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "build:wyrmling": "npm run build && npm run clean:wyrmling && npm run copy:wyrmling",
+    "clean:cube": "(rmdir /s /q %localappdata%/CSE/CamelotUnchained/27/INTERFACE/%npm_package_config_name%) ^& exit 0",
+    "copy:cube": "(robocopy dist\\ %localappdata%/CSE/CamelotUnchained/27/INTERFACE/%npm_package_config_name%\\ /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "build:cube": "npm run build && npm run clean:cube && npm run copy:cube"
   },
   "dependencies": {
     "bourbon": "^4.2.6",
