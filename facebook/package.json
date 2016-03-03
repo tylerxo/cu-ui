@@ -8,7 +8,7 @@
   "contributors": [{
     "name": "Stacey Schlenker",
     "email": "cloudsift@gmail.com"
-  }  
+  }
   ],
   "keywords": [
     "Camelot",
@@ -31,7 +31,16 @@
     "copy": "(robocopy src dist /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
     "build": "npm run clean && npm run copy -s",
     "publish": "npm run build",
-    "serve": "http-server -p 9000 dist/"
+    "serve": "http-server -p 9000 dist/",
+    "clean:hatchery": "(rmdir /s /q %localappdata%/CSE/CamelotUnchained/4/INTERFACE/%npm_package_config_name%) ^& exit 0",
+    "copy:hatchery": "(robocopy dist\\ %localappdata%/CSE/CamelotUnchained/4/INTERFACE/%npm_package_config_name%\\ /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "build:hatchery": "npm run build && npm run clean:hatchery && npm run copy:hatchery",
+    "clean:wyrmling": "(rmdir /s /q %localappdata%/CSE/CamelotUnchained/10/INTERFACE/%npm_package_config_name%) ^& exit 0",
+    "copy:wyrmling": "(robocopy dist\\ %localappdata%/CSE/CamelotUnchained/10/INTERFACE/%npm_package_config_name%\\ /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "build:wyrmling": "npm run build && npm run clean:wyrmling && npm run copy:wyrmling",
+    "clean:cube": "(rmdir /s /q %localappdata%/CSE/CamelotUnchained/27/INTERFACE/%npm_package_config_name%) ^& exit 0",
+    "copy:cube": "(robocopy dist\\ %localappdata%/CSE/CamelotUnchained/27/INTERFACE/%npm_package_config_name%\\ /s) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
+    "build:cube": "npm run build && npm run clean:cube && npm run copy:cube"
   },
   "dependencies": {
   },

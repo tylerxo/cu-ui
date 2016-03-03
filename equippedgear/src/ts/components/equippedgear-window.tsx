@@ -5,7 +5,7 @@
  */
 
 import * as React from 'react';
-import {client, events, EquippedGear, Item, itemType, gearSlot} from 'camelot-unchained';
+import {client, events, EquippedGear, Item, gearSlot} from 'camelot-unchained';
 import ClassNames from 'classnames';
 import Tooltip from 'rc-tooltip';
 
@@ -95,10 +95,6 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
             <td>{item.description}</td>
           </tr>
           <tr>
-            <th>Type</th>
-            <td>{this.getItemTypeName(item.type)} ({item.type})</td>
-          </tr>
-          <tr>
             <th>Gear Slot</th>
             <td>{this.getGearSlotName(item.gearSlot)} ({item.gearSlot})</td>
           </tr>
@@ -113,19 +109,6 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
         </tbody>
       </table>
     );
-  }
-
-  getItemTypeName(type: itemType): string {
-    switch (type) {
-      case itemType.NONE:
-        return 'None';
-      case itemType.EQUIPABLE:
-        return 'Equipable';
-      case itemType.RESOURCE:
-        return 'Resource';
-      default:
-        return 'None';
-    }
   }
 
   getGearSlotName(slot: any): string {

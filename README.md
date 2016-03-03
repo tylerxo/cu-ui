@@ -26,7 +26,7 @@ Setup
 
 ```sh
 #install required global npm packages
-npm i -g babel-cli babel-core babel-preset-es2015 node-sass browserify typescript@1.8.0 typings
+npm i -g babel-cli babel-core babel-preset-es2015 node-sass browserify typescript@1.8.0 typings mkdirp http-server
 
 # install development packages
 npm install

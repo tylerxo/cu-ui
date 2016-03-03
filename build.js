@@ -8,8 +8,9 @@ var yargs = require('yargs')
   .alias('b', 'build')
   .alias('i', 'install')
   .alias('p', 'publish')
+  .alias('prod', 'production')
   .argv;
- 
+
 var publish = yargs.publish || 'publish';
 
 function getDirectories(root) {
@@ -23,19 +24,8 @@ function getDirectories(root) {
 function installModule(directory) {
   console.log(chalk.green(`running npm install in ${directory}`));
   cd(directory);
-  exec('npm install');
+  exec(yargs.production ? 'npm install --production' : 'npm install');
   cd('..');
-}
-
-function runTypings(directory) {
-  fs.access(path.join(directory, '/typings.json'), fs.R_OK, function(err) {
-    if(err === null) {
-      console.log(chalk.green(`running typings install in ${directory}`));
-      cd(directory);
-      exec('typings install');  
-      cd('..');
-    }  
-  });
 }
 
 function buildModule(directory) {
@@ -48,9 +38,6 @@ function buildModule(directory) {
 
 var directories = getDirectories('.');
 
-if (yargs.install) {
-    directories.map(installModule);
-    directories.map(runTypings)
-}
+if (yargs.install) directories.map(installModule);
 
 if (yargs.build) directories.map(buildModule);
