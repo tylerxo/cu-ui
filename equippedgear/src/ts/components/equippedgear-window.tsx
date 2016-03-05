@@ -7,7 +7,7 @@
 import * as React from 'react';
 import {client, events, EquippedGear, Item, gearSlot} from 'camelot-unchained';
 import ClassNames from 'classnames';
-import Tooltip from 'rc-tooltip';
+// import Tooltip from 'rc-tooltip';
 
 export class EquippedGearWindow extends React.Component<EquippedGearWindowProps, EquippedGearWindowState> {
   private listener: any;
@@ -56,12 +56,10 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
           <li key={'gear-slot'+index} className="gear-slot-title cu-font-cinzel">{this.getGearSlotName(slotId)}</li>
         ));
         items.push((
-          <Tooltip placement="topLeft" key={'item-tooltip' + index} overlay={this.renderTooltip.call(this, item)} arrowContent={<div className="cu-tooltip-arrow-inner"></div>} prefixCls="cu-tooltip" mouseLeaveDelay={0} mouseEnterDelay={0.25}>
-            <li key={'item'+index} onDoubleClick={this.unequipItem.bind(this, item)} onContextMenu={this.unequipItem.bind(this, item)}>
-              <div className="icon"><img src="../../interface-lib/camelot-unchained/images/items/icon.png" /></div>
-              <div className="name">{item.name}</div>
-            </li>
-          </Tooltip>
+          <li key={'item'+index} onDoubleClick={this.unequipItem.bind(this, item)} onContextMenu={this.unequipItem.bind(this, item)}>
+            <div className="icon"><img src="../../interface-lib/camelot-unchained/images/items/icon.png" /></div>
+            <div className="name">{item.name}</div>
+          </li>
         ))
       }
     });
@@ -82,34 +80,34 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
     );
   }
 
-  renderTooltip(item: Item) {
-    return (
-      <table className="cu-table tooltip-content">
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <td>{item.name}</td>
-          </tr>
-          <tr>
-            <th>Description</th>
-            <td>{item.description}</td>
-          </tr>
-          <tr>
-            <th>Gear Slot</th>
-            <td>{this.getGearSlotName(item.gearSlot)} ({item.gearSlot})</td>
-          </tr>
-          <tr>
-            <th>Item ID</th>
-            <td className="font-monospace font-small">{item.id}</td>
-          </tr>
-          <tr>
-            <th>Resource ID</th>
-            <td className="font-monospace">{item.resourceID}</td>
-          </tr>
-        </tbody>
-      </table>
-    );
-  }
+  // renderTooltip(item: Item) {
+  //   return (
+  //     <table className="cu-table tooltip-content">
+  //       <tbody>
+  //         <tr>
+  //           <th>Name</th>
+  //           <td>{item.name}</td>
+  //         </tr>
+  //         <tr>
+  //           <th>Description</th>
+  //           <td>{item.description}</td>
+  //         </tr>
+  //         <tr>
+  //           <th>Gear Slot</th>
+  //           <td>{this.getGearSlotName(item.gearSlot)} ({item.gearSlot})</td>
+  //         </tr>
+  //         <tr>
+  //           <th>Item ID</th>
+  //           <td className="font-monospace font-small">{item.id}</td>
+  //         </tr>
+  //         <tr>
+  //           <th>Resource ID</th>
+  //           <td className="font-monospace">{item.resourceID}</td>
+  //         </tr>
+  //       </tbody>
+  //     </table>
+  //   );
+  // }
 
   getGearSlotName(slot: any): string {
     switch (parseInt(slot, 10)) {
