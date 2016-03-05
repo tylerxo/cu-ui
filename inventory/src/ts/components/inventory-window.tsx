@@ -54,14 +54,13 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
   render() {
     const itemGroups: JSX.Element[] = [];
     this.state.itemGroups.forEach((group: ItemGroup, index: number) => {
+      console.log(group);
       itemGroups.push((
-        <Tooltip placement="topLeft" key={'item-tooltip' + index} overlay={this.renderTooltip.call(this, group.item)} arrowContent={<div className="cu-tooltip-arrow-inner"></div>} prefixCls="cu-tooltip" mouseLeaveDelay={0} mouseEnterDelay={0.25}>
           <li key={'item-group' + index} onDoubleClick={this.useItem.bind(this, group) } onContextMenu={this.dropItem.bind(this, group )}>
             <div className="icon"><img src="../../interface-lib/camelot-unchained/images/items/icon.png" /></div>
             <div className="name">{group.item.name}</div>
             <div className="quantity">{group.quantity}</div>
           </li>
-        </Tooltip>
       ));
     });
     return (
