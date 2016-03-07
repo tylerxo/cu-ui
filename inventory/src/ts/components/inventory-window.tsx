@@ -53,7 +53,6 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
   render() {
     const itemGroups: JSX.Element[] = [];
     this.state.itemGroups.forEach((group: ItemGroup, index: number) => {
-      console.log(group);
       itemGroups.push((
           <li className="inventory-item" key={'item-group' + index} onDoubleClick={this.useItem.bind(this, group) } onContextMenu={this.dropItem.bind(this, group )}>
             <div className="quantity">{group.quantity}</div>
