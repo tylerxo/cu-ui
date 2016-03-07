@@ -2,10 +2,10 @@
   "name": "inventory",
   "mainFile": "index.html",
   "rect": {
-    "left": 900,
+    "left": 950,
     "top": 350,
     "right": 1430,
-    "bottom": 770
+    "bottom": 700
   },
   "handlesAbilities": false,
   "handlesAnnouncements": false,
