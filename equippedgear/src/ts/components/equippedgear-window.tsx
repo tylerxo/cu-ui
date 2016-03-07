@@ -52,7 +52,7 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
       const item = this.state.equippedgear.getItemInGearSlot(slotId);
       if (item != null) {
         items.push((
-          <li key={'gear-slot'+index} className="gear-slot-title cu-font-cinzel">{this.getGearSlotName(slotId)}</li>
+          <li key={'gear-slot'+index} className="equippedgear-title cu-font-cinzel">{this.getGearSlotName(slotId)}</li>
         ));
         items.push((
           <li className="equippedgear-item" key={'item'+index} onDoubleClick={this.unequipItem.bind(this, item)} onContextMenu={this.unequipItem.bind(this, item)}>
