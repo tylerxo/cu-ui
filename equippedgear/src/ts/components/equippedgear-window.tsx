@@ -55,7 +55,7 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
           <li key={'gear-slot'+index} className="gear-slot-title cu-font-cinzel">{this.getGearSlotName(slotId)}</li>
         ));
         items.push((
-          <li class="equippedgear-item" key={'item'+index} onDoubleClick={this.unequipItem.bind(this, item)} onContextMenu={this.unequipItem.bind(this, item)}>
+          <li className="equippedgear-item" key={'item'+index} onDoubleClick={this.unequipItem.bind(this, item)} onContextMenu={this.unequipItem.bind(this, item)}>
             <div className="icon"><img src="../../interface-lib/camelot-unchained/images/items/icon.png" /></div>
             <div className="name">{item.name}</div>
             <div className="tooltip">
