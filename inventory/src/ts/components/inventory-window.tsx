@@ -61,30 +61,10 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
             <div className="icon"><img src="../../interface-lib/camelot-unchained/images/items/icon.png" /></div>
             <div className="name">{group.item.name}</div>
             <div className="tooltip">
-              <table className="cu-table tooltip__content">
-                <tbody>
-                  <tr>
-                    <th>Name</th>
-                    <td>{group.item.name}</td>
-                  </tr>
-                  <tr>
-                    <th>Description</th>
-                    <td>{group.item.description}</td>
-                  </tr>
-                  <tr>
-                    <th>Gear Slot</th>
-                    <td>{this.getGearSlotName(group.item.gearSlot)} ({group.item.gearSlot})</td>
-                  </tr>
-                  <tr>
-                    <th>Item ID</th>
-                    <td className="font-monospace font-small">{group.item.id}</td>
-                  </tr>
-                  <tr>
-                    <th>Resource ID</th>
-                    <td className="font-monospace">{group.item.resourceID}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <h1 className="tooltip__title">{group.item.name}</h1>
+              <p className="tooltip__slot">{this.getGearSlotName(group.item.gearSlot)}</p>
+              <p className="tooltip__description">{group.item.description}</p>
+              <p className="tooltip__meta">{group.item.id}</p>
             </div>
           </li>
       ));

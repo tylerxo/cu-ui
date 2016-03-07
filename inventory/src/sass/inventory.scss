@@ -92,9 +92,15 @@
 .tooltip {
   display: none;
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 0;
+  z-index: 2;
   width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  background: rgba(0, 0, 0, .75);
+  color: #ccc;
+  box-shadow: 0 0 0 0 3px rgba(0, 0, 0, .45);
   pointer-events: none;
 
   .inventory-item:hover & {
@@ -102,36 +108,16 @@
   }
 }
 
-.tooltip__content {
-  width: 100%;
+.tooltip__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
 
-  tr {
-    font-size: 80%;
-    vertical-align: top;
-    border-bottom: 1px dashed #222;
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-
-  th {
-    padding: 2px 5px 2px 0;
-    border-right: 1px dashed #222;
-  }
-
-  td {
-    padding: 2px 0 2px 5px;
-    word-break: break-word;
-
-    &.font-small {
-      font-size: 9px;
-    }
-
-    &.font-monospace {
-      font-family: 'Roboto Mono', monospace;
-    }
-  }
+.tooltip__meta {
+  color: #999;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 9px;
 }
 
 .cu-tooltip-inner {
