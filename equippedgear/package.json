@@ -61,7 +61,6 @@
     "bourbon": "^4.2.6",
     "camelot-unchained": "^0.2.5",
     "classnames": "^2.2.1",
-    "rc-tooltip": "^3.3.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
   },

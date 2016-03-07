@@ -60,10 +60,9 @@
   "dependencies": {
     "camelot-unchained": "latest",
     "classnames": "^2.2.1",
-    "rc-tooltip": "^3.3.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
-	"es6-promise": "^3.0.0"
+  	"es6-promise": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",
