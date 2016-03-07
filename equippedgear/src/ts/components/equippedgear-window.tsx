@@ -7,7 +7,6 @@
 import * as React from 'react';
 import {client, events, EquippedGear, Item, gearSlot} from 'camelot-unchained';
 import ClassNames from 'classnames';
-// import Tooltip from 'rc-tooltip';
 
 export class EquippedGearWindow extends React.Component<EquippedGearWindowProps, EquippedGearWindowState> {
   private listener: any;
@@ -56,9 +55,15 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
           <li key={'gear-slot'+index} className="gear-slot-title cu-font-cinzel">{this.getGearSlotName(slotId)}</li>
         ));
         items.push((
-          <li key={'item'+index} onDoubleClick={this.unequipItem.bind(this, item)} onContextMenu={this.unequipItem.bind(this, item)}>
+          <li class="equippedgear-item" key={'item'+index} onDoubleClick={this.unequipItem.bind(this, item)} onContextMenu={this.unequipItem.bind(this, item)}>
             <div className="icon"><img src="../../interface-lib/camelot-unchained/images/items/icon.png" /></div>
             <div className="name">{item.name}</div>
+            <div className="tooltip">
+              <h1 className="tooltip__title">{item.name}</h1>
+              <p className="tooltip__detail tooltip__slot">{this.getGearSlotName(item.gearSlot)}</p>
+              <p className="tooltip__detail tooltip__description">{item.description}</p>
+              <p className="tooltip__meta">Resource ID: {item.id}</p>
+            </div>
           </li>
         ))
       }
@@ -72,42 +77,13 @@ export class EquippedGearWindow extends React.Component<EquippedGearWindowProps,
           </div>
         </div>
         <div className="cu-window-content">
-          <ul className="equippedgear-list list-vertical">
+          <ul className="equippedgear-list equippedgear-list--vertical">
             {items}
           </ul>
         </div>
       </div>
     );
   }
-
-  // renderTooltip(item: Item) {
-  //   return (
-  //     <table className="cu-table tooltip-content">
-  //       <tbody>
-  //         <tr>
-  //           <th>Name</th>
-  //           <td>{item.name}</td>
-  //         </tr>
-  //         <tr>
-  //           <th>Description</th>
-  //           <td>{item.description}</td>
-  //         </tr>
-  //         <tr>
-  //           <th>Gear Slot</th>
-  //           <td>{this.getGearSlotName(item.gearSlot)} ({item.gearSlot})</td>
-  //         </tr>
-  //         <tr>
-  //           <th>Item ID</th>
-  //           <td className="font-monospace font-small">{item.id}</td>
-  //         </tr>
-  //         <tr>
-  //           <th>Resource ID</th>
-  //           <td className="font-monospace">{item.resourceID}</td>
-  //         </tr>
-  //       </tbody>
-  //     </table>
-  //   );
-  // }
 
   getGearSlotName(slot: any): string {
     switch (parseInt(slot, 10)) {

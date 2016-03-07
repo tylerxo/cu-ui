@@ -2,10 +2,10 @@
   "name": "equippedgear",
   "mainFile": "index.html",
   "rect": {
-    "left": 810,
+    "left": 600,
     "top": 350,
     "right": 1120,
-    "bottom": 770
+    "bottom": 700
   },
   "handlesAbilities": false,
   "handlesAnnouncements": false,
