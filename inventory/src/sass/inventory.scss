@@ -95,10 +95,10 @@
 .tooltip {
   display: none;
   position: fixed;
-  top: 43px; // magic number to place under header
+  top: 47px; // magic number to place under header
   left: 3px; // allow shadow to fit on left size of rect
   z-index: 2;
-  width: 207px;
+  width: 204px;
   padding: 10px;
   border: 1px solid #555;
   background: rgba(0, 0, 0, .75);
