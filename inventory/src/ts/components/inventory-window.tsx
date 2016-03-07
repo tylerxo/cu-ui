@@ -8,7 +8,6 @@ import * as React from 'react';
 import {client, events, Inventory, Item, gearSlot} from 'camelot-unchained';
 import ClassNames from 'classnames';
 import {ItemGroup} from './item-group';
-// import Tooltip from 'rc-tooltip';
 
 export class InventoryWindow extends React.Component<InventoryWindowProps, InventoryWindowState> {
   private listener: any;
@@ -62,9 +61,9 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
             <div className="name">{group.item.name}</div>
             <div className="tooltip">
               <h1 className="tooltip__title">{group.item.name}</h1>
-              <p className="tooltip__slot">{this.getGearSlotName(group.item.gearSlot)}</p>
-              <p className="tooltip__description">{group.item.description}</p>
-              <p className="tooltip__meta">{group.item.id}</p>
+              <p className="tooltip__detail tooltip__slot">{this.getGearSlotName(group.item.gearSlot)}</p>
+              <p className="tooltip__detail tooltip__description">{group.item.description}</p>
+              <p className="tooltip__meta">Resource ID: {group.item.id}</p>
             </div>
           </li>
       ));
@@ -85,35 +84,6 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
       </div>
     );
   }
-
-  // renderTooltip(item: Item) {
-  //   return (
-  //     <table className="cu-table tooltip-content">
-  //       <tbody>
-  //         <tr>
-  //           <th>Name</th>
-  //           <td>{item.name}</td>
-  //         </tr>
-  //         <tr>
-  //           <th>Description</th>
-  //           <td>{item.description}</td>
-  //         </tr>
-  //         <tr>
-  //           <th>Gear Slot</th>
-  //           <td>{this.getGearSlotName(item.gearSlot)} ({item.gearSlot})</td>
-  //         </tr>
-  //         <tr>
-  //           <th>Item ID</th>
-  //           <td className="font-monospace font-small">{item.id}</td>
-  //         </tr>
-  //         <tr>
-  //           <th>Resource ID</th>
-  //           <td className="font-monospace">{item.resourceID}</td>
-  //         </tr>
-  //       </tbody>
-  //     </table>
-  //   );
-  // }
 
   getGearSlotName(slot: gearSlot): string {
     switch (slot) {

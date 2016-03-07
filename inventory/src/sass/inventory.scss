@@ -8,8 +8,11 @@
  @import "../../node_modules/camelot-unchained/lib/index.scss";
 
 #inventory {
-  width: 273px;
-  height: 336px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 250px;
 }
 
 .cu-window-content::before {
@@ -36,7 +39,7 @@
   text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
 
   &:hover {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.75);
   }
 
   .inventory-list--vertical & {
@@ -91,16 +94,17 @@
 
 .tooltip {
   display: none;
-  position: absolute;
-  bottom: 100%;
+  position: fixed;
+  top: 42px; // magic number to place under header
   left: 0;
   z-index: 2;
-  width: 100%;
+  width: 250px;
   padding: 10px;
   border: 1px solid #555;
   background: rgba(0, 0, 0, .75);
   color: #ccc;
   box-shadow: 0 0 0 0 3px rgba(0, 0, 0, .45);
+  border-radius: 3px;
   pointer-events: none;
 
   .inventory-item:hover & {
@@ -109,9 +113,15 @@
 }
 
 .tooltip__title {
-  font-size: 14px;
+  margin: 0 0 3px;
+  font-size: 13px;
   font-weight: 600;
   color: #fff;
+}
+
+.tooltip__detail {
+  margin: 0 0 4px;
+  font-size: 10px;
 }
 
 .tooltip__meta {
