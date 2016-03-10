@@ -4,8 +4,8 @@
   "rect": {
     "left": 1140,
     "top": 0,
-    "right": 1400,
-    "bottom": 0
+    "right": 1440,
+    "bottom": 700
   },
   "handlesAbilities": false,
   "handlesAnnouncements": false,
