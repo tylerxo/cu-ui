@@ -28,9 +28,6 @@
     "name": "cube"
   },
   "scripts": {
-    "postinstall": "npm run typings",
-    "typings": "npm run clean:typings && typings install",
-    "clean:typings": "(rmdir /s /q typings) ^& exit 0",
     "clean:tmp": "(rmdir /s /q tmp) ^& exit 0",
     "clean:tmpp": "(rmdir /s /q tmpp) ^& exit 0",
     "clean:publish": "(rmdir /s /q dist) ^& exit 0",
@@ -42,7 +39,7 @@
     "browserify": "browserify tmpp/main.js -o dist/js/%npm_package_config_name%.js",
     "prebrowserify": "mkdirp dist/js",
     "build:sass": "node-sass src/sass -o dist/css --importer node_modules/camelot-unchained/lib/third-party/sass-importer/sass-npm-importer.js",
-    "build": "tsc && npm run build:sass && npm run copy -s && npm run babel && npm run browserify && npm run clean:tmp -s && npm run clean:tmpp -s",
+    "build": "npm run build:sass && npm run copy -s && npm run babel && npm run browserify && npm run clean:tmp -s && npm run clean:tmpp -s",
     "prebuild": "npm run clean -s",
     "publish": "npm run build",
     "serve": "http-server -p 9000 dist/",
@@ -68,8 +65,6 @@
     "browserify": "^13.0.0",
     "http-server": "^0.9.0",
     "mkdirp": "^0.5.1",
-    "node-sass": "^3.4.2",
-    "typescript": "^1.8.0",
-    "typings": "^0.6.8"
+    "node-sass": "^3.4.2"
   }
 }

@@ -5,12 +5,12 @@
  */
 
 // import {events} from 'camelot-unchained';
-import * as CU from 'camelot-unchained';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as CU from 'camelot-unchained'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 // import {BlocksWindow} from './components/blocks-window';
 
 CU.events.on('init', () => {
 	console.log(CU);
   // ReactDOM.render(<BlocksWindow />, document.getElementById('cube'));
-});
+})
