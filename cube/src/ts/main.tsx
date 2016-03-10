@@ -10,8 +10,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 // import {BlocksWindow} from './components/blocks-window';
 
-console.log(CU);
-
-// events.on('init', () => {
-//   ReactDOM.render(<BlocksWindow />, document.getElementById('cube'));
-// });
+CU.events.on('init', () => {
+	console.log(CU);
+  // ReactDOM.render(<BlocksWindow />, document.getElementById('cube'));
+});
