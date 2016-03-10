@@ -1,0 +1,17 @@
+/**
+* This Source Code Form is subject to the terms of the Mozilla Public
+* License, v. 2.0. If a copy of the MPL was not distributed with this
+* file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+$cu-styles-root: '../../../interface-lib/camelot-unchained/styles/';
+@import "../../node_modules/camelot-unchained/lib/index.scss";
+
+#cube {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: pink;
+}

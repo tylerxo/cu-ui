@@ -1,0 +1,27 @@
+{
+  "name": "cube",
+  "mainFile": "index.html",
+  "rect": {
+    "left": 1140,
+    "top": 0,
+    "right": 1440,
+    "bottom": 0
+  },
+  "handlesAbilities": false,
+  "handlesAnnouncements": false,
+  "handlesBeginChat": false,
+  "handlesBuilding": true,
+  "handlesCharacter": false,
+  "handlesChat": false,
+  "handlesConfig": false,
+  "handlesConsole": false,
+  "handlesEnemyTarget": false,
+  "handlesEquippedGear": false,
+  "handlesFriendlyTarget": false,
+  "handlesInput": true,
+  "handlesInventory": false,
+  "handlesLogging": false,
+  "handlesLogin": false,
+  "hidden": false,
+  "layer": 1
+}
