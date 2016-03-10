@@ -8,7 +8,7 @@
 import * as CU from 'camelot-unchained';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {BlocksWindow} from './components/blocks';
+// import {BlocksWindow} from './components/blocks-window';
 
 console.log(CU);
 
